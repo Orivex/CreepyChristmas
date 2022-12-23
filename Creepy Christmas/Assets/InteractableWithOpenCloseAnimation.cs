@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wardrobe : MonoBehaviour, IInteractable
+public class InteractableWithOpenCloseAnimation : MonoBehaviour, IInteractable
 {
     [field: SerializeField] public bool needItem { get; set; }
     [field: SerializeField] public string neededItemName { get; set; }
