@@ -8,7 +8,8 @@ public class PointCounter : MonoBehaviour
     public float points;
     [SerializeField] TMP_Text pointsText;
 
-    [SerializeField] 
+    [SerializeField] GameObject secretroomwall;
+    [SerializeField] bool secretroomopen;
     public void AddPoints(float points)
     {
         this.points += points;
@@ -17,9 +18,11 @@ public class PointCounter : MonoBehaviour
     {
         pointsText.text = points.ToString();
 
-        if(points > 20)
+        if(points > 10 && secretroomopen == false)
         {
-
+            secretroomopen = true;
+            Destroy(secretroomwall);
+            ScreenMessager.Instance.SendScreenMessage("A secret room has been opened!", Color.green);
         }
     }
 }

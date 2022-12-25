@@ -9,8 +9,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] Inventory inventory;
     [SerializeField] PlayerInteract playerInteract;
 
-    [SerializeField] Image[] slotImages;
-
     [SerializeField] Color umrandungColor;
     [SerializeField] Image[] slotUmrandungImages;
 
@@ -19,15 +17,8 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < slotImages.Length; i++)
+        for (int i = 0; i < slotUmrandungImages.Length; i++)
         {
-            if (inventory.slots[i].item != null)
-                slotImages[i].sprite = inventory.slots[i].item.slotSprite;
-            else
-                slotImages[i].sprite = null;
-
-
-
             if(i == inventory.currentSlotIndex)
                 slotUmrandungImages[i].color = umrandungColor;
             else
