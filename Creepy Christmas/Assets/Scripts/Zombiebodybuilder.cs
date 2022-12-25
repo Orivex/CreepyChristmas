@@ -20,8 +20,6 @@ public class Zombiebodybuilder : MonoBehaviour, IInteractable
     [SerializeField] GameObject keyPrefab;
     [SerializeField] Transform keySpawnPos;
 
-    [SerializeField] Transform player;
-
     private void Start()
     {
         agent.SetDestination(walkPoints[0].position);
@@ -37,15 +35,13 @@ public class Zombiebodybuilder : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        transform.LookAt(new Vector3(player.position.x, 0f, player.position.z));
-
         head.SetActive(true);
         ps.Stop();
         animator.SetTrigger("healed");
         agent.isStopped = true;
         description = "Thank you, here is a key I found";
         GameObject key = Instantiate(keyPrefab, keySpawnPos.position, Quaternion.identity);
-        key.name = "Key";
+        key.name = "Key Nr.2";
         Destroy(gameObject, 7f);
     }
 }

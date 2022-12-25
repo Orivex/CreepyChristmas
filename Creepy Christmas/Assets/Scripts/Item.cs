@@ -10,6 +10,8 @@ public class Item : MonoBehaviour, IInteractable
     [field: SerializeField] public string description { get; set; }
     [field: SerializeField] public bool interacted { get; set; }
 
+    public Sprite slotSprite;
+
     public bool isEquiped;
 
     [SerializeField] bool destroyWhenUsed; 

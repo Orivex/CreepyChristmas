@@ -11,24 +11,16 @@ public class GameStory : MonoBehaviour
     [SerializeField] CharacterController playerController;
     [SerializeField] MouseLook mouseLook;
 
-    [Header("Days")]
-     public static int days; //tries
-
     [Space]
 
-    [Header("Pointcounter")]
+    [Header("Procces 2")]
     [SerializeField] PointCounter pointCounter;
     [SerializeField] GameObject secretroomWall;
     [SerializeField] bool secretroomopened;
 
-    private void Start()
-    {
-        days++;
-    }
-
     private void Update()
     {
-        if (pointCounter.points >= 10 && secretroomopened == false)
+        if (pointCounter.points > 10 && secretroomopened == false)
         {
             secretroomopened = true;
             OpenSecretRoom();
@@ -43,7 +35,6 @@ public class GameStory : MonoBehaviour
 
     public void BedSpawnTimelineStart()
     {
-        ScreenMessager.Instance.SendScreenMessage("Day " + days, Color.red);
         playerMovement.enabled = false;
         playerInteract.enabled = false;
         playerController.enabled = false;
